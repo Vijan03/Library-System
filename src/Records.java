@@ -1,4 +1,3 @@
-package PACKAGE_NAME;
+public class Records{
 
-public class Records {
 }
