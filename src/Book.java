@@ -1,18 +1,57 @@
 public class Book {
     // attributes -> book number, name, quantity, author
     // create the attributes
-    int bookNumber;
-    String bookName;
-    int quantity;
-    String author;
+    private int bookNumber;
+    private String bookName;
+    private int bookQuantity;
+    private String bookAuthor;
+
+    public Book(int quantity, String bookName, int bookNumber, String author) {
+        this.bookQuantity = quantity;
+        this.bookName = bookName;
+        this.bookNumber = bookNumber;
+        this.bookAuthor = author;
+    }
+
+    public int getBookNumber() {
+        return bookNumber;
+    }
+
+    public void setBookNumber(int bookNumber) {
+        this.bookNumber = bookNumber;
+    }
+
+    public String getBookName() {
+        return bookName;
+    }
+
+    public void setBookName(String bookName) {
+        this.bookName = bookName;
+    }
+
+    public int getBookQuantity() {
+        return bookQuantity;
+    }
+
+    public void setBookQuantity(int quantity) {
+        this.bookQuantity = quantity;
+    }
+
+    public String getBookAuthor() {
+        return bookAuthor;
+    }
+
+    public void setBookAuthor(String author) {
+        this.bookAuthor = author;
+    }
 
     // behaviour -> increase quantity, decrease quantity
     public void increaseQuantity(){
+        this.bookQuantity++;
         System.out.println("need to work in increase");
     }
     public void decreaseQuantity(){
+        this.bookQuantity--;
         System.out.println("need to work in decrease");
     }
-
-
 }
