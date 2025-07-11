@@ -45,13 +45,13 @@ public class Library {
 
         try{
             Connection conn = DatabaseConnection.connect();
-            String query = "INSERT INTO user(name, username, contact) VALUES ()";
+            String query = "INSERT INTO user(name, username, contact) VALUES (?, ?, ?)";
             PreparedStatement ps = conn.prepareStatement(query);
             ps.setString(1, user1.getName());
             ps.setString(2, user1.getUsername());
             ps.setInt(3, user1.getContact());
             if (ps.executeUpdate() > 0){
-                System.out.println("Book added to database");
+                System.out.println("User added to database");
             }
             else {
                 System.out.println("Failed to add");
