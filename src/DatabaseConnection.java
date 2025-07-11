@@ -4,7 +4,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class DatabaseConnection {
-    private static final String dbName = "librarydb";
+    private static final String dbName = "librabrydb";
     private static final String path = "jdbc:mysql://localhost:3306/"+ dbName;
     private static final String username = "root";
     private static final String password = "";
@@ -23,7 +23,10 @@ public class DatabaseConnection {
             else {
                 System.out.println("Connection failed");
             }
-        }catch (Exception e){
+        }catch (SQLException e){
+            throw new RuntimeException(e);
+        }
+        catch (ClassNotFoundException e){
             throw new RuntimeException(e);
         }
     }
