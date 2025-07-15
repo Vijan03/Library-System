@@ -64,12 +64,15 @@ public class Library {
 
 
 
+
         while(true) {
             System.out.println("Welcome to  the Library \n");
             System.out.println("Enter 1: Show Available Books ");
             System.out.println("Enter 2: Borrow Book ");
             System.out.println("Enter 3: Return Book ");
-            System.out.println("Enter 4: Exit \n");
+            System.out.println("Enter 4: Update Book ");
+            System.out.println("Enter 5: Delete Book ");
+            System.out.println("Enter 6: Exit \n");
             System.out.println("Choose an option: ");
 
             int option = input.nextInt();
@@ -118,8 +121,41 @@ public class Library {
                 System.out.println("Returning Book");
             }
             else if (option == 4) {
-                System.out.println("Exiting...!!");
-                break;
+                System.out.println("Enter book id: ");
+                int bookid = input.nextInt();
+                System.out.println("Enter book Number: ");
+                int bookNumber = input.nextInt();
+                try {
+                    Connection conn = DatabaseConnection.connect();
+                    String query = "UPDATE book SET bookNumber = ? WHERE bookid = ?";
+                    PreparedStatement ps = conn.prepareStatement(query);
+                    ps.setInt(1, bookNumber);
+                    ps.setInt(2, bookid);
+
+                    if(ps.executeUpdate() > 0){
+                        System.out.println("book Updated");
+                    }else {
+                        System.out.println("Failed to update");
+                    }
+                } catch (SQLException | ClassNotFoundException e) {
+                    throw new RuntimeException(e);
+                }
+            } else if (option == 5) {
+                System.out.println("Enter the book id to delete: ");
+                int bookid = input.nextInt();
+                try {
+                    Connection conn = DatabaseConnection.connect();
+                    String query = "DELETE FROM book WHERE bookid = ?";
+                    PreparedStatement ps = conn.prepareStatement(query);
+                    ps.setInt(1,bookid);
+                    if(ps.executeUpdate() > 0){
+                        System.out.println("book deleted");
+                    }else{
+                        System.out.println("Failed to delete");
+                    }
+                } catch (SQLException | ClassNotFoundException e) {
+                    throw new RuntimeException(e);
+                }
             }
             else {
                 System.out.println("Invalid option.");
