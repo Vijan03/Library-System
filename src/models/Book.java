@@ -1,3 +1,5 @@
+package models;
+
 public class Book {
     // attributes -> book number, name, quantity, author
     // create the attributes
@@ -6,11 +8,11 @@ public class Book {
     private int bookQuantity;
     private String bookAuthor;
 
-    public Book(int quantity, String bookName, int bookNumber, String author) {
-        this.bookQuantity = quantity;
+    public Book(String bookName, int bookNumber, String bookAuthor, int bookQuantity) {
+        this.bookQuantity = bookQuantity;
         this.bookName = bookName;
         this.bookNumber = bookNumber;
-        this.bookAuthor = author;
+        this.bookAuthor = bookAuthor;
     }
 
 

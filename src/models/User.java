@@ -1,3 +1,5 @@
+package models;
+
 import java.util.Scanner;
 
 public class User {
@@ -47,7 +49,7 @@ public class User {
             book.decreaseQuantity();
         }
         else {
-            System.out.println("Book not available.");
+            System.out.println("models.Book not available.");
         }
     }
 
